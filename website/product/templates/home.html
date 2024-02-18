@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>cerave</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
+
+  <style>
+    .card-title {
+      color: blue;
+    }
+    .fixed-footer {
+        bottom: 0;
+    }
+  
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="m-4">
+      <nav class="nav justify-content-end navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+
+          <a href="/home/" class="nav-item nav-link">HOME</a>
+          <a href="/about/" class="nav-item nav-link">ABOUT_US</a>
+          <a href="/contact/" class="nav-item nav-link">CONTACT_US</a>
+
+        </div>
+      </nav>
+    </div>
+  </header>
+
+
+  <main>
+    <div class="container">
+      <div class="p-5 mb-4 bg-light border rounded-3">
+        <h1>{{info.name}}</h1>
+        <p class="lead">{{info.description}}</p>
+
+      </div>
+      <div>
+        <h1 style="padding: 15px;">OUR PRODUCTS</h1>
+      </div>
+      <div class="row">
+        {% for single_product in products %}
+
+        <div class="col-lg-4 md-3 sm-6">
+          <div class="card">
+            <img style="width: auto; height: 500px" src="{{single_product.image.url}}" class="card-img-top" alt="..." />
+            <div class="card-body">
+              <h5 class="card-title" style="font-family: 'Times New Roman', Times, serif;">{{single_product.product_name}}</h5>
+              <p class="card-text">{{single_product.product_description}}</p>
+
+              <p class="card-text" style="color: blue;font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">{{single_product.date|date}} </p>
+
+              <a href="#" class="btn btn-primary">Price {{single_product.price}}</a>
+
+            </div>
+          </div>
+        </div>
+
+        {% endfor %}
+      </div>
+    </div>
+  </main>
+<hr>
+<footer>
+  <div>
+    <div class="fixed-footer">
+       <div class="container">
+           <div class="row">
+               <div class="col-md-6" style="margin-top: 30px;">CeraVe does not treat underlying skin conditions. MVE is a registered trademark of DFB
+                   Technology, Ltd. Patent No. 6,709,663. © 2023 CeraVe</div>
+                <div class="col-md-6">
+                   <ul class="list-group list-group-flush">
+                       <li class="list-group-item">
+                         <h4><i class="fa fa-twitter"> <a href="https://twitter.com/cerave?lang=en">twitter</a> </i></h4>
+                       </li>
+                       <li class="list-group-item">
+                         <h4><i class="fa fa-facebook"><a href="https://www.facebook.com/CeraveSkincareUKI/">facebook</a></i> </h4>
+                       </li>
+                       <li class="list-group-item">
+                         <h4><i class="fa fa-instagram"><a href="https://www.instagram.com/cerave/?hl=en">instagram</a></i> </h4>
+                       </li>
+                     </ul>
+               </div>
+           </div>
+       </div>
+    </div>
+   </div>
+  
+  </footer>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>
